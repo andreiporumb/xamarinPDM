@@ -4,11 +4,23 @@
              xmlns:local="clr-namespace:PDM"
              x:Class="PDM.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ActivityIndicator VerticalOptions="Center" HorizontalOptions="Center" x:Name="activity_indicator" Color="#4D7EE1" />
+    <!-- ListView-->
+    <ListView x:Name="myList" HasUnevenRows="true">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <!-- Here we make a Horizontal orientation with the help of StackLayout-->
+                    <StackLayout Orientation="Horizontal" Margin="5" HeightRequest="90">
+                        <Image Source="{Binding image}" WidthRequest="100" HeightRequest="200" Aspect="AspectFit" />
+                        <StackLayout VerticalOptions="Center">
+                            <Label Text="{Binding title}" TextColor="#1C5AD8" />
+                        </StackLayout>
+                        <Image HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20" Source="more_icon.png" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
 </ContentPage>
